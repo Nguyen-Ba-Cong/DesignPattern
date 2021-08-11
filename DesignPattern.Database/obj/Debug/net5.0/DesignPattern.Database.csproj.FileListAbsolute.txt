@@ -1,0 +1,15 @@
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\bin\Debug\net5.0\DesignPattern.Database.deps.json
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\bin\Debug\net5.0\DesignPattern.Database.runtimeconfig.json
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\bin\Debug\net5.0\DesignPattern.Database.runtimeconfig.dev.json
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\bin\Debug\net5.0\DesignPattern.Database.dll
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\bin\Debug\net5.0\ref\DesignPattern.Database.dll
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\bin\Debug\net5.0\DesignPattern.Database.pdb
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.csproj.AssemblyReference.cache
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.AssemblyInfoInputs.cache
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.AssemblyInfo.cs
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.csproj.CoreCompileInputs.cache
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.dll
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\ref\DesignPattern.Database.dll
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.pdb
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.Database\obj\Debug\net5.0\DesignPattern.Database.genruntimeconfig.cache
