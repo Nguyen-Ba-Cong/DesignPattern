@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DesignPattern.Database.Entity;
 using DesignPattern.Service.IRepositories;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper.QueryableExtensions;
 
 namespace DesignPattern.Service.Repositories
 {
@@ -29,10 +30,11 @@ namespace DesignPattern.Service.Repositories
             return entity;
         }
 
-        public void Delete(T entity)
+        public T Delete(T entity)
         {
             _baseContext.Set<T>().Remove(entity);
             _baseContext.SaveChanges();
+            return entity;
         }
 
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
@@ -40,10 +42,11 @@ namespace DesignPattern.Service.Repositories
             return _baseContext.Set<T>().Where(expression).AsNoTracking();
         }
 
-        public void Update(T entity)
+        public T Update(T entity)
         {
             _baseContext.Set<T>().Update(entity);
             _baseContext.SaveChanges();
+            return entity;
         }
     }
 }

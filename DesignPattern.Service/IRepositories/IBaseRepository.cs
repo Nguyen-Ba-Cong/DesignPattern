@@ -12,7 +12,7 @@ namespace DesignPattern.Service.IRepositories
         IQueryable<T> All(int offset, int limit);
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
         T Create(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+        T Update(T entity);
+        T Delete(T entity);
     }
 }

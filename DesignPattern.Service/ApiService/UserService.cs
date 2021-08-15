@@ -32,8 +32,8 @@ namespace DesignPattern.Service.ApiService
         {
 
             var userToUpdate = _mapper.Map<User>(user);
-            _userRepository.Update(userToUpdate);
-            return user;
+            var userResult = _userRepository.Update(userToUpdate);
+            return _mapper.Map<UserModel>(userResult);
         }
 
         public UserModel DeleteUser(int id, UserModel user)
@@ -45,8 +45,8 @@ namespace DesignPattern.Service.ApiService
             else
             {
                 var useDel = _mapper.Map<User>(user);
-                _userRepository.Delete(useDel);
-                return user;
+                var userResult = _userRepository.Delete(useDel);
+                return _mapper.Map<UserModel>(userResult);
             }
         }
 

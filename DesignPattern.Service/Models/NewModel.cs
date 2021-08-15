@@ -16,5 +16,6 @@ namespace DesignPattern.Service.Models
         public string Description { get; set; }
 
         public ICollection<CategoryModel> Categories { get; set; }
+        public UserModel User { get; set; }
     }
 }
