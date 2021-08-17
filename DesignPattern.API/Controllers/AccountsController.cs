@@ -13,17 +13,30 @@ using DesignPattern.Service.Models.ResetPassword;
 
 namespace DesignPattern.API.Controllers
 {
+    /// <summary>
+    /// Do something with account.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class AccountsController : ControllerBase
     {
         private readonly IAccountService _accountService;
         private readonly ISendMail _sendmail;
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public AccountsController(IAccountService accountService, ISendMail sendmail)
         {
             _accountService = accountService;
             _sendmail = sendmail;
         }
+        /// <summary>
+        /// Login with Admin account.
+        /// </summary>
+        /// <response code="404">Not found account</response>
+        /// <response code="201">Return the newly created item.</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="accountModel">Email and Password of Account</param>
         [HttpPost("Admin/Login")]
         public IActionResult AdminLogin(AccountModel accountModel)
         {
@@ -37,6 +50,13 @@ namespace DesignPattern.API.Controllers
                 return StatusCode(200, response);
             }
         }
+        /// <summary>
+        /// Login with Guest account.
+        /// </summary>
+        /// <response code="404">Not found account</response>
+        /// <response code="201">Return the newly created item.</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="accountModel">Email and Password of Account</param>s
         [HttpPost("Guest/Login")]
         public IActionResult GuestLogin(AccountModel accountModel)
         {
@@ -50,6 +70,12 @@ namespace DesignPattern.API.Controllers
                 return StatusCode(200, response);
             }
         }
+        /// <summary>
+        /// Change password of your account.
+        /// </summary>
+        /// <response code="200">Return account with new password</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="changePasswordModel">New Password</param>s
         [HttpPut("Change-Password")]
         public IActionResult ChangePassword(ChangePasswordModel changePasswordModel)
         {
@@ -57,6 +83,12 @@ namespace DesignPattern.API.Controllers
             var response = _accountService.ChangePassword(email, changePasswordModel);
             return StatusCode(200, response);
         }
+        /// <summary>
+        /// Change password of your account.
+        /// </summary>
+        /// <response code="200">Send mail Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="email">Input Email to get Code Reset Password</param>s
         [HttpPost("Forgot-Password")]
         public IActionResult ForgotPassword(SendMailModel email)
         {
@@ -81,13 +113,19 @@ namespace DesignPattern.API.Controllers
             }
             return StatusCode(500, Service.Common.Constants.Error);
         }
+        /// <summary>
+        /// Change password of your account.
+        /// </summary>
+        /// <response code="200"> Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="resetPasswordModel">Include email, new password and code you got</param>s
         [HttpPut("Reset-Password")]
         public IActionResult ResetPassword(ResetPasswordModel resetPasswordModel)
         {
             try
             {
                 _accountService.ResetPassword(resetPasswordModel.Email, resetPasswordModel.Password, resetPasswordModel.Code);
-                return StatusCode(500, Service.Common.Constants.Success);
+                return StatusCode(200, Service.Common.Constants.Success);
             }
             catch (Exception)
             {

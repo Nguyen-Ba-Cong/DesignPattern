@@ -11,18 +11,31 @@ using System.Security.Claims;
 
 namespace DesignPattern.API.Controllers
 {
+    /// <summary>
+    /// Do CRUD with News.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class NewsController : ControllerBase
     {
         private readonly INewService _newSerVice;
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public NewsController(INewService newSerVice)
         {
             _newSerVice = newSerVice;
         }
 
         // GET: api/News
+        /// <summary>
+        /// Get All News
+        /// </summary>
+        /// <response code="404">Not Found News</response>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="offset">The point begin to take next limit item</param>
+        /// <param name="limit">The numbers of item to get</param>
         [HttpGet]
         public List<NewModel> GetNews(int offset = 0, int limit = 10)
         {
@@ -30,6 +43,13 @@ namespace DesignPattern.API.Controllers
         }
 
         // get: api/news/5
+        /// <summary>
+        /// Get All News
+        /// </summary>
+        /// <response code="404">Not Found New</response>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="id">Get New By Id</param>
         [HttpGet("{id}")]
         public IActionResult GetNew(int id)
         {
@@ -42,7 +62,12 @@ namespace DesignPattern.API.Controllers
         }
 
         // PUT: api/News/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Update New
+        /// </summary>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="newModel">New you want update</param>
         [HttpPut("{id}")]
         public IActionResult PutNew(NewModel newModel)
         {
@@ -56,7 +81,12 @@ namespace DesignPattern.API.Controllers
         }
 
         // POST: api/News
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Create New
+        /// </summary>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="newModel">Info of new</param>
         [HttpPost]
         public IActionResult PostNew(NewModel newModel)
         {
@@ -70,6 +100,13 @@ namespace DesignPattern.API.Controllers
         }
 
         // DELETE: api/News/5
+        /// <summary>
+        /// Delete New By Id
+        /// </summary>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <response code="401">User is not authenticated.</response>
+        /// <param name="newModel">Info of new</param>
         [HttpDelete("{id}")]
         public IActionResult DeleteNew(NewModel newModel)
         {

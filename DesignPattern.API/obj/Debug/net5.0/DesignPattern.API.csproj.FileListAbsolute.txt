@@ -149,3 +149,5 @@ D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.API\bin\Debug\net5.0\Mi
 D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.API\bin\Debug\net5.0\MailKit.dll
 D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.API\bin\Debug\net5.0\MimeKit.dll
 D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.API\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.API\bin\Debug\net5.0\DesignPattern.API.xml
+D:\Code Files\Intern Enclave\DesignPattern\DesignPattern.API\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll

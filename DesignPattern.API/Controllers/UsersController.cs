@@ -11,11 +11,17 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DesignPattern.API.Controllers
 {
+    /// <summary>
+    /// To do something with User.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
+        /// <summary>
+        /// Constructor
+        /// </summary>
 
         public UsersController(IUserService userService)
         {
@@ -23,6 +29,15 @@ namespace DesignPattern.API.Controllers
         }
 
         // GET: api/Users?limit=10&offset=1
+        /// <summary>
+        /// Get 10 Users.
+        /// </summary>
+        /// <response code="401">User is not authenticated.</response>
+        /// <response code="201">Return the newly created item.</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="limit">The number of item user want to take</param>s
+        /// <param name="offset">The point*10 you want begin ten take next 10 item</param>s
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult GetUsers(int limit = 10, int offset = 0)
         {
@@ -35,6 +50,14 @@ namespace DesignPattern.API.Controllers
         }
 
         // GET: api/Users/5
+        /// <summary>
+        /// Get news by category's id.
+        /// </summary>
+        /// <response code="401">If user is not authenticated.</response>
+        /// <response code="200">Return the newly created item.</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="id">Id of user you want to take</param>s
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public IActionResult GetUser(int id)
         {
@@ -46,6 +69,12 @@ namespace DesignPattern.API.Controllers
             return StatusCode(404, Service.Common.Constants.NotFound);
         }
         // GET: api/Users/5/News
+        /// <summary>
+        /// Get News by user who write it.
+        /// </summary>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="id">Id of Author</param>s
         [HttpGet("{id}/News")]
         public IActionResult GetNewByUserId(int id)
         {
@@ -58,7 +87,12 @@ namespace DesignPattern.API.Controllers
         }
 
         // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Update some information of user
+        /// </summary>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="user">New Info of user you want to update</param>
         [HttpPut("{id}")]
         public IActionResult PutUser(UserModel user)
         {
@@ -71,7 +105,12 @@ namespace DesignPattern.API.Controllers
         }
 
         // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Create New users.
+        /// </summary>
+        /// <response code="200">Success</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="user">Info of user you want to create</param>s
         [HttpPost]
         public IActionResult PostUser(UserModel user)
         {
@@ -85,6 +124,14 @@ namespace DesignPattern.API.Controllers
         }
 
         // DELETE: api/Users/5
+        /// <summary>
+        /// Delete user by Id
+        /// </summary>
+        /// <response code="401">User is not authenticated.</response>
+        /// <response code="201">Return the newly created item.</response>
+        /// <response code="400">Invalid request .</response>
+        /// <param name="id">Id of user you want to delete</param>
+        /// <param name="user">Info of user you want to delete</param>
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public IActionResult DeleteUser(int id, UserModel user)

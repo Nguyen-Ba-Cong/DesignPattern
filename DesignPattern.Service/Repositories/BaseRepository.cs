@@ -20,7 +20,8 @@ namespace DesignPattern.Service.Repositories
         }
         public IQueryable<T> All(int offset, int limit)
         {
-            return _baseContext.Set<T>().Skip(offset * limit).Take(limit).AsNoTracking();
+            var result = _baseContext.Set<T>().Skip(offset * limit).Take(limit).AsNoTracking();
+            return result;
         }
 
         public T Create(T entity)

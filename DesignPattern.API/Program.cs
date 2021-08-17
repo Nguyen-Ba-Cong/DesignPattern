@@ -9,13 +9,21 @@ using System.Threading.Tasks;
 
 namespace DesignPattern.API
 {
+    /// <summary>
+    /// Class Program
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Main Function
+        /// </summary>
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
         }
-
+        /// <summary>
+        /// Create Host Builder
+        /// </summary>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

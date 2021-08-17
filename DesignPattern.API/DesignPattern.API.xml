@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DesignPattern.API</name>
+    </assembly>
+    <members>
+        <member name="T:DesignPattern.API.Controllers.AccountsController">
+            <summary>
+            Do something with account.
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.AccountsController.#ctor(DesignPattern.Service.IApiServices.IAccountService,DesignPattern.Service.Email.ISendMail)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.AccountsController.AdminLogin(DesignPattern.Service.Models.JWT.AccountModel)">
+            <summary>
+            Login with Admin account.
+            </summary>
+            <response code="404">Not found account</response>
+            <response code="201">Return the newly created item.</response>
+            <response code="400">Invalid request .</response>
+            <param name="accountModel">Email and Password of Account</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.AccountsController.GuestLogin(DesignPattern.Service.Models.JWT.AccountModel)">
+            <summary>
+            Login with Guest account.
+            </summary>
+            <response code="404">Not found account</response>
+            <response code="201">Return the newly created item.</response>
+            <response code="400">Invalid request .</response>
+            <param name="accountModel">Email and Password of Account</param>s
+        </member>
+        <member name="M:DesignPattern.API.Controllers.AccountsController.ChangePassword(DesignPattern.Service.Models.JWT.ChangePasswordModel)">
+            <summary>
+            Change password of your account.
+            </summary>
+            <response code="200">Return account with new password</response>
+            <response code="400">Invalid request .</response>
+            <param name="changePasswordModel">New Password</param>s
+        </member>
+        <member name="M:DesignPattern.API.Controllers.AccountsController.ForgotPassword(DesignPattern.Service.Models.SendMailModel)">
+            <summary>
+            Change password of your account.
+            </summary>
+            <response code="200">Send mail Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="email">Input Email to get Code Reset Password</param>s
+        </member>
+        <member name="M:DesignPattern.API.Controllers.AccountsController.ResetPassword(DesignPattern.Service.Models.ResetPassword.ResetPasswordModel)">
+            <summary>
+            Change password of your account.
+            </summary>
+            <response code="200"> Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="resetPasswordModel">Include email, new password and code you got</param>s
+        </member>
+        <member name="T:DesignPattern.API.Controllers.CategoriesController">
+            <summary>
+            To do Add, Update , Get, Delete Category and Get News By Category Id.
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.CategoriesController.#ctor(DesignPattern.Service.IApiServices.ICategoryService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.CategoriesController.GetCategories(System.Int32,System.Int32)">
+            <summary>
+            Get all categories.
+            </summary>
+            <response code="404">Result is not found.</response>
+            <response code="400">Invalid request .</response>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.CategoriesController.GetCategory(System.Int32)">
+            <summary>
+            Get Category by Id.
+            </summary>
+            <response code="404">Result is not found.</response>
+            <response code="400">Invalid request .</response>
+            <param name="id">Id of cateogy to get</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.CategoriesController.GetNewByCategoryId(System.Int32)">
+            <summary>
+            Get news by category's id.
+            </summary>
+            <response code="404">Result is not found.</response>
+            <response code="400">Invalid request .</response>
+            <param name="id">Id of category to get New</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.CategoriesController.PutCategory(System.Int32,DesignPattern.Service.Models.CategoryModel)">
+            <summary>
+            Update a specific CategoryItem.
+            </summary>
+            <response code="401">User is not authenticated.</response>
+            <response code="400">Invalid request .</response>
+            <param name="id">Id of category to update</param>
+            <param name="category">Category object with information need to be updated</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.CategoriesController.PostCategory(DesignPattern.Service.Models.CategoryModel)">
+            <summary>
+            Add new CategoryItem.
+            </summary>
+            <response code="401">User is not authenticated.</response>
+            <response code="200">Return the newly created item.</response>
+            <response code="400">Invalid request .</response>
+            <param name="category">Category object that need to be added.</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.CategoriesController.DeleteCategory(System.Int32,DesignPattern.Service.Models.CategoryModel)">
+            <summary>
+            Add new CategoryItem.
+            </summary>
+            <response code="401">User is not authenticated.</response>
+            <response code="200">Return the delete item.</response>
+            <response code="400">Invalid request .</response>
+            <param name="categoryModel">Category object that need to be added.</param>s
+            <param name="id">Id of category select to make sure delete correct item</param>s
+        </member>
+        <member name="T:DesignPattern.API.Controllers.NewsController">
+            <summary>
+            Do CRUD with News.
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.NewsController.#ctor(DesignPattern.Service.IApiServices.INewService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.NewsController.GetNews(System.Int32,System.Int32)">
+            <summary>
+            Get All News
+            </summary>
+            <response code="404">Not Found News</response>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="offset">The point begin to take next limit item</param>
+            <param name="limit">The numbers of item to get</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.NewsController.GetNew(System.Int32)">
+            <summary>
+            Get All News
+            </summary>
+            <response code="404">Not Found New</response>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="id">Get New By Id</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.NewsController.PutNew(DesignPattern.Service.Models.NewModel)">
+            <summary>
+            Update New
+            </summary>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="newModel">New you want update</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.NewsController.PostNew(DesignPattern.Service.Models.NewModel)">
+            <summary>
+            Create New
+            </summary>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="newModel">Info of new</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.NewsController.DeleteNew(DesignPattern.Service.Models.NewModel)">
+            <summary>
+            Delete New By Id
+            </summary>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <response code="401">User is not authenticated.</response>
+            <param name="newModel">Info of new</param>
+        </member>
+        <member name="T:DesignPattern.API.Controllers.UsersController">
+            <summary>
+            To do something with User.
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.UsersController.#ctor(DesignPattern.Service.IApiServices.IUserService)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.UsersController.GetUsers(System.Int32,System.Int32)">
+            <summary>
+            Get 10 Users.
+            </summary>
+            <response code="401">User is not authenticated.</response>
+            <response code="201">Return the newly created item.</response>
+            <response code="400">Invalid request .</response>
+            <param name="limit">The number of item user want to take</param>s
+            <param name="offset">The point*10 you want begin ten take next 10 item</param>s
+        </member>
+        <member name="M:DesignPattern.API.Controllers.UsersController.GetUser(System.Int32)">
+            <summary>
+            Get news by category's id.
+            </summary>
+            <response code="401">If user is not authenticated.</response>
+            <response code="200">Return the newly created item.</response>
+            <response code="400">Invalid request .</response>
+            <param name="id">Id of user you want to take</param>s
+        </member>
+        <member name="M:DesignPattern.API.Controllers.UsersController.GetNewByUserId(System.Int32)">
+            <summary>
+            Get News by user who write it.
+            </summary>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="id">Id of Author</param>s
+        </member>
+        <member name="M:DesignPattern.API.Controllers.UsersController.PutUser(DesignPattern.Service.Models.UserModel)">
+            <summary>
+            Update some information of user
+            </summary>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="user">New Info of user you want to update</param>
+        </member>
+        <member name="M:DesignPattern.API.Controllers.UsersController.PostUser(DesignPattern.Service.Models.UserModel)">
+            <summary>
+            Create New users.
+            </summary>
+            <response code="200">Success</response>
+            <response code="400">Invalid request .</response>
+            <param name="user">Info of user you want to create</param>s
+        </member>
+        <member name="M:DesignPattern.API.Controllers.UsersController.DeleteUser(System.Int32,DesignPattern.Service.Models.UserModel)">
+            <summary>
+            Delete user by Id
+            </summary>
+            <response code="401">User is not authenticated.</response>
+            <response code="201">Return the newly created item.</response>
+            <response code="400">Invalid request .</response>
+            <param name="id">Id of user you want to delete</param>
+            <param name="user">Info of user you want to delete</param>
+        </member>
+        <member name="T:DesignPattern.API.Policies.Policies">
+            <summary>
+            Class to set policies for user Login.
+            </summary>
+        </member>
+        <member name="F:DesignPattern.API.Policies.Policies.Admin">
+            <summary>
+            If user is Admin
+            </summary>
+        </member>
+        <member name="F:DesignPattern.API.Policies.Policies.Guest">
+            <summary>
+            If user is Guest
+            </summary>
+        </member>
+        <member name="F:DesignPattern.API.Policies.Policies.Admin_Guest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Policies.Policies.AdminPolicy">
+            <summary>
+            Role is Admin
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Policies.Policies.GuestPolicy">
+            <summary>
+            Role is Guest
+            </summary>
+        </member>
+        <member name="T:DesignPattern.API.Program">
+            <summary>
+            Class Program
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Program.Main(System.String[])">
+            <summary>
+            Main Function
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Create Host Builder
+            </summary>
+        </member>
+        <member name="T:DesignPattern.API.Startup">
+            <summary>
+            Start up
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:DesignPattern.API.Startup.Configuration">
+            <summary>
+            Crate Configuration Varible with only get
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Config Method.
+            </summary>
+        </member>
+        <member name="M:DesignPattern.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Config method
+            </summary>
+        </member>
+    </members>
+</doc>
